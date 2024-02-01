@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.9.0-alpha.5",
+    "@apollo/experimental-nextjs-app-support": "^0.7.0",
     "@supabase/supabase-js": "^2.39.3",
     "axios": "^1.6.7",
+    "graphql": "^16.8.1",
     "next": "14.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-html-parser": "^2.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

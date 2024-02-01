@@ -1,6 +1,8 @@
 import { supabase } from "@/utils/supabaseClient";
 import { NextResponse } from "next/server";
 
+import { useQuery, gql } from "@apollo/client";
+
 export async function GET(req, res) {
 	let { data, error } = await supabase.from('posts').select('*');
 	if (error) {

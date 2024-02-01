@@ -1,12 +1,34 @@
 import React from 'react';
 import ArticleList from "./components/ArticleList";
+import { getClient } from "@/lib/client";
+import { gql } from "@apollo/client";
+
+const query = gql`
+{
+    blogs(sort: "id:desc")  {
+      data {
+        id
+        attributes {
+          title,
+          content,
+		  createdAt
+        }
+      }
+    }
+  }`;
 
 export default async function Home() {
-	const API_URL = process.env.NEXT_PUBLIC_API_URL;
+	const { data } = await getClient().query({
+		query,
+		context: {
+			fetchOptions: {
+				next: { revalidate: 5 },
+			},
+		},
+	});
 
-	const res = await fetch(`${API_URL}/api/blog`, { cache: "no-store" });
-	console.log(res)
-	const articles = await res.json()
+	//console.log(data.blogs.data[0])
+	const articles = data.blogs.data;
 
 	return (
 		<div className="md:flex">

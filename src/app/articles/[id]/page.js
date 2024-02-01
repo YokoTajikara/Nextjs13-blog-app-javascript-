@@ -1,32 +1,41 @@
 import React from 'react'
-import Image from 'next/image'
-import DeleteButton from "@/app/components/DeleteButton";
+import { getClient } from "@/lib/client";
+import { gql } from "@apollo/client";
+import RichText from '@/app/components/RichText';
 
 const Articel = async ({ params }) => {
-	//const detailArticle = await getDerailArticles(params.id)
-	const API_URL = process.env.NEXT_PUBLIC_API_URL;
-	const res = await fetch(`${API_URL}/api/blog/${params.id}`, {
-		next: { revalidate: 60 },
+	const query = gql`{
+		blog(id:${params.id})  {
+		  data {
+			id
+			attributes {
+			  title,
+			  content,
+			  createdAt
+			}
+		  }
+		}
+	  }`;
+
+	const { data } = await getClient().query({
+		query,
+		context: {
+			fetchOptions: {
+				next: { revalidate: 5 },
+			},
+		},
 	});//ISR
-	const detailArticle = await res.json()
+
+
+	const detailArticle = data.blog.data
 
 	return (
 		<div className="max-w-3xl mx-auto p-5">
-			{/* relative を追加 */}
-			<Image
-				src={`https://source.unsplash.com/collection/1346951/1000x500?sig=${detailArticle.id}`}
-				width={1280}
-				height={300}
-				alt=""
-			/>
 			<h1 className="text-4xl text-center mb-10 mt-10">
-				{detailArticle.title}
+				{detailArticle.attributes.title}
 			</h1>
 			<div className="text-lg leading-relaxed text-justify">
-				<p>{detailArticle.content}</p>
-			</div>
-			<div className="text-right mt-3">
-				<DeleteButton id={detailArticle.id} />
+				<RichText richText={detailArticle.attributes.content} />
 			</div>
 		</div>
 	);
