@@ -34,3 +34,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Next(SSR), Strapi, GraphQLでブログの雛形を作成
+Next(SSR), Strapi, GraphQLでブログの雛形を作成しました。
+
+**strapi-grapQL**ブランチをクローンすること。
+
+(マスターブランチはsupabaseと連携している。apiのエンドポイントが参考になるのでマージしないで残しておく。)
+
+
+### frontendのローカル環境
+Udemy/food-delivery-udemy/frontend-test/next13-tailwindcss-blog-js
+
+### backendのローカル環境
+Udemy/food-delivery-udemy/backend
+```
+npm run develop
+```
+で起動してhttp://localhost:1337/
+にアクセスする
+
+
+
+[参考 strapi graphQL SSR](https://www.apollographql.com/blog/how-to-use-apollo-client-with-next-js-13#next-js-server-components-cache)
+
+[参考 strapi graphQL SPA](https://strapi.io/blog/how-to-build-a-to-do-app-using-next-js-and-strapi)
