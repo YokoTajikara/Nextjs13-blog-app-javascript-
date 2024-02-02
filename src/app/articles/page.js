@@ -6,7 +6,7 @@ import BasicPagination from "@/app/components/BasicPagination";
 
 const query = gql`
 {
-    blogs(pagination: { page: 1, pageSize: 5 },sort: "id:desc")  {
+    blogs(pagination: { page: 1, pageSize: 1 },sort: "id:desc")  {
       data {
         id
         attributes {
@@ -46,26 +46,6 @@ export default async function page() {
 			<section className="w-full md:w-2/3 flex flex-col items-center px-3">
 				<ArticleList articles={articles} />
 				<BasicPagination meta={data.blogs.meta.pagination} />
-				<div className="flex items-center py-8">
-					<a
-						href="#"
-						className="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center"
-					>
-						1
-					</a>
-					<a
-						href="#"
-						className="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center"
-					>
-						2
-					</a>
-					<a
-						href="#"
-						className="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3"
-					>
-						Next <i className="fas fa-arrow-right ml-2"></i>
-					</a>
-				</div>
 			</section>
 
 			<aside className="w-full md:w-1/3 flex flex-col items-center px-3 md:pl-6">
