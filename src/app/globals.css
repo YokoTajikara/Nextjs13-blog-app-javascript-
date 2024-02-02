@@ -1,3 +1,87 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* その１  */
+
+.page-list {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.page-list li {
+	display: inline;
+	margin: 0 2px;
+	padding: 0;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	position: relative;
+}
+
+.page-list li button {
+	vertical-align: middle;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	display: table;
+	color: #fff;
+	text-decoration: none;
+	background: #9D50BB;
+}
+
+.page-list li button.disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.page-list li button span {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.page-list li button:hover,
+.page-list li button.current {
+	color: #000;
+	background: #ccf;
+}
+
+@media only screen and (max-width: 767px) {
+	.page-list li {
+		display: none;
+	}
+
+	.page-list li.pre,
+	.page-list li.next {
+		display: inline-block;
+		width: 40%;
+		height: 50px;
+		text-align: center;
+	}
+
+	.page-list li.pre button,
+	.page-list li.next button {
+		width: 100%;
+		text-align: center;
+	}
+
+	.page-list li.pre span::after {
+		content: "　前の10件へ";
+	}
+
+	.page-list li.next span::before {
+		content: "次の10件へ　";
+	}
+
+}
+
+.MuiPagination-text {
+	color: #fff;
+}

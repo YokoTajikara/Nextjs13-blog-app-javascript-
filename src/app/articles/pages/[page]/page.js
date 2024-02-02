@@ -3,10 +3,12 @@ import ArticleList from "@/app/components/ArticleList";
 import { getClient } from "@/lib/client";
 import { gql } from "@apollo/client";
 import BasicPagination from "@/app/components/BasicPagination";
+import CustomPagination from "@/app/components/CustomPagination";
 
-const query = gql`
+export default async function page({ params }) {
+	const query = gql`
 {
-    blogs(pagination: { page: 1, pageSize: 5 },sort: "id:desc")  {
+    blogs(pagination: { page: ${params.page}, pageSize: 1 },sort: "id:desc")  {
       data {
         id
         attributes {
@@ -26,9 +28,6 @@ const query = gql`
     }
   }`;
 
-export default async function page() {
-	const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
 	const { data } = await getClient().query({
 		query,
 		context: {
@@ -38,14 +37,14 @@ export default async function page() {
 		},
 	});
 
-	//.log(data.blogs.data[0])
 	const articles = data.blogs.data;
 
 	return (
 		<div className="md:flex">
 			<section className="w-full md:w-2/3 flex flex-col items-center px-3">
 				<ArticleList articles={articles} />
-				<BasicPagination meta={data.blogs.meta.pagination} />
+				<BasicPagination meta={data.blogs.meta.pagination} current={params.page} />
+				<CustomPagination meta={data.blogs.meta.pagination} current={params.page} />
 				<div className="flex items-center py-8">
 					<a
 						href="#"
