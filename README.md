@@ -38,6 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Next(SSR), Strapi, GraphQLでブログの雛形を作成
 Next(SSR), Strapi, GraphQLでブログの雛形を作成しました。
+MUIを使ってページネーションのカスタマイズも作成しました。
 
 **strapi-grapQL**ブランチをクローンすること。
 
@@ -60,3 +61,7 @@ npm run develop
 [参考 strapi graphQL SSR](https://www.apollographql.com/blog/how-to-use-apollo-client-with-next-js-13#next-js-server-components-cache)
 
 [参考 strapi graphQL SPA](https://strapi.io/blog/how-to-build-a-to-do-app-using-next-js-and-strapi)
+
+[参考　MUI pagination](https://mui.com/material-ui/react-pagination/)
+
+[参考　MUI paginationスタイルカスタマイズ](https://mui.com/material-ui/api/pagination/#css)
