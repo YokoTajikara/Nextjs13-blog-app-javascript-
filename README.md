@@ -62,6 +62,8 @@ npm run develop
 
 [参考 strapi graphQL SPA](https://strapi.io/blog/how-to-build-a-to-do-app-using-next-js-and-strapi)
 
+[参考 strapi graphQL pagination](https://docs.strapi.io/dev-docs/api/graphql#pagination-by-page))
+
 [参考　MUI pagination](https://mui.com/material-ui/react-pagination/)
 
 [参考　MUI paginationスタイルカスタマイズ](https://mui.com/material-ui/api/pagination/#css)
