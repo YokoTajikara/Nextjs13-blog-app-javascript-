@@ -37,10 +37,16 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 ## Next(SSR), Strapi, GraphQLでブログの雛形を作成
-Next(SSR), Strapi, GraphQLでブログの雛形を作成しました。
+strapi-grapQLブランチでNext(SSR), Strapi, GraphQLでブログの雛形を作成しました。
 MUIを使ってページネーションのカスタマイズも作成しました。
 
 **strapi-grapQL**ブランチをクローンすること。
+完成したものの確認画面（カスタマイズしたページネーションを含む）
+http://localhost:3000/articles/
+http://localhost:3000/articles/pages/4
+
+※トップページのページネーションは静的なので動かない
+http://localhost:3000/
 
 (マスターブランチはsupabaseと連携している。apiのエンドポイントが参考になるのでマージしないで残しておく。)
 
