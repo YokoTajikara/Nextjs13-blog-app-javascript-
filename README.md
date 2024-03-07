@@ -42,7 +42,9 @@ MUIを使ってページネーションのカスタマイズも作成しまし�
 
 **strapi-grapQL**ブランチをクローンすること。
 完成したものの確認画面（カスタマイズしたページネーションを含む）
+
 http://localhost:3000/articles/
+
 http://localhost:3000/articles/pages/4
 
 ※トップページのページネーションは静的なので動かない
